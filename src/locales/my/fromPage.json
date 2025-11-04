@@ -1,0 +1,38 @@
+{
+  "appTitle": "MyApp",
+  "home": "မူလ",
+  "form": "ဖောင်",
+  "about": "အကြောင်း",
+  "contact": "ဆက်သွယ်ရန်",
+  "language": "ဘာသာ",
+
+  "registerTitle": "ကျောင်းသား မှတ်ပုံတင် ဖောင်",
+  "updateTitle": "ကျောင်းသား ပြင်ဆင်ရေး ဖောင်",
+
+  "name": "နာမည်",
+  "age": "အသက်",
+  "email": "အီးမေးလ်",
+  "address": "လိပ်စာ",
+
+  "phName": "ဥပမာ၊ မောင်မင်း",
+  "phAge": "0",
+  "phEmail": "example@domain.com",
+  "phAddress": "လမ်း၊ မြို့",
+
+  "submit": "တင်သွင်းမည်",
+  "update": "ပြင်ဆင်မည်",
+  "cancel": "ပယ်ဖျက်",
+
+  "savedEntries": "သိမ်းဆည်းထားသော မှတ်တမ်းများ",
+  "tableName": "နာမည်",
+  "tableAge": "အသက်",
+  "tableEmail": "အီးမေးလ်",
+  "tableAddress": "လိပ်စာ",
+  "tableActions": "လုပ်ဆောင်ချက်",
+  "tableUpdate": "ပြင်ဆင်",
+  "tableRemove": "ဖယ်ရှား",
+  "tableEmpty": "မှတ်တမ်း မရှိသေးပါ။ ဖောင်တင်ပြီး ထည့်သွင်းပါ။",
+
+  "errorsForm": "လိုအပ်သော အချက်အလက်များ ဖြည့်ပါ။",
+  "errorsRequired": "{field} က လိုအပ်ပါသည်။"
+}

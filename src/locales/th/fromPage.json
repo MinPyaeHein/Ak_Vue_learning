@@ -1,0 +1,38 @@
+{
+  "appTitle": "MyApp",
+  "home": "หน้าแรก",
+  "form": "แบบฟอร์ม",
+  "about": "เกี่ยวกับ",
+  "contact": "ติดต่อ",
+  "language": "ภาษา",
+
+  "registerTitle": "แบบฟอร์มลงทะเบียนนักเรียน",
+  "updateTitle": "แบบฟอร์มแก้ไขข้อมูลนักเรียน",
+
+  "name": "ชื่อ",
+  "age": "อายุ",
+  "email": "อีเมล",
+  "address": "ที่อยู่",
+
+  "phName": "เช่น Jane Doe",
+  "phAge": "0",
+  "phEmail": "jane@example.com",
+  "phAddress": "ถนน, เมือง",
+
+  "submit": "ส่ง",
+  "update": "อัปเดต",
+  "cancel": "ยกเลิก",
+
+  "savedEntries": "รายการที่บันทึกไว้",
+  "tableName": "ชื่อ",
+  "tableAge": "อายุ",
+  "tableEmail": "อีเมล",
+  "tableAddress": "ที่อยู่",
+  "tableActions": "การดำเนินการ",
+  "tableUpdate": "แก้ไข",
+  "tableRemove": "ลบ",
+  "tableEmpty": "ยังไม่มีรายการ โปรดส่งแบบฟอร์มเพื่อเพิ่มรายการ",
+
+  "errorsForm": "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน",
+  "errorsRequired": "{field} จำเป็นต้องระบุ"
+}

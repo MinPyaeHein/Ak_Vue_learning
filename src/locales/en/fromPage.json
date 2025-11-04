@@ -1,0 +1,38 @@
+{ 
+  "appTitle": "MyApp",
+  "home": "Home",
+  "form": "Form",
+  "about": "About",
+  "contact": "Contact",
+  "language": "Language",
+
+  "registerTitle": "Student Register Form",
+  "updateTitle": "Update Student Form",
+
+  "name": "Name",
+  "age": "Age",
+  "email": "Email",
+  "address": "Address",
+
+  "phName": "Jane Doe",
+  "phAge": "0",
+  "phEmail": "jane@example.com",
+  "phAddress": "Street, City",
+
+  "submit": "Submit",
+  "update": "Update",
+  "cancel": "Cancel",
+
+  "savedEntries": "Saved Entries",
+  "tableName": "Name",
+  "tableAge": "Age",
+  "tableEmail": "Email",
+  "tableAddress": "Address",
+  "tableActions": "Actions",
+  "tableUpdate": "Update",
+  "tableRemove": "Remove",
+  "tableEmpty": "No entries yet. Submit the form to add one.",
+
+  "errorsForm": "Please fill required fields.",
+  "errorsRequired": "{field} is required."
+}
