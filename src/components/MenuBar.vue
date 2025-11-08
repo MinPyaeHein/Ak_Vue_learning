@@ -11,6 +11,7 @@
       </ul>
     </div>
   </nav>
+  <div id="content"></div>
 </template>
 
 <style scoped>
