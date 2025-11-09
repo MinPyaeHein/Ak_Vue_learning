@@ -1,6 +1,17 @@
+<script setup>
+import Layout from '@/components/Layout.vue';
+</script>
+
 <template>
-  <div class="wrap">
-    <h2>Contact</h2>
-    <p>Contact us at contact@example.com</p>
-  </div>
+  <Layout>
+    <template #header>
+      <h1>My App Header</h1>
+    </template>
+
+    <p>Main content goes here</p>
+
+    <template #footer>
+      <small>© 2025 Inner Code</small>
+    </template>
+  </Layout>
 </template>

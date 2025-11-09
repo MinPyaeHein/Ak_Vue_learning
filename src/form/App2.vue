@@ -22,7 +22,6 @@ function addStudent () {
     email: form.value.email,
     address: form.value.address
   })
-
   cleanForm()
 }
 
@@ -32,6 +31,7 @@ function cleanForm () {
   form.value.email = ''
   form.value.address = ''
 }
+
 </script>
 
 <template>

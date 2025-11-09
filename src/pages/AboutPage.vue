@@ -1,6 +1,13 @@
+<script setup lang="ts">
+import subjectPage from '@/components/Subject.vue';
+import calculatorPage from '@/components/Calculator.vue';
+</script>
+ 
 <template>
-  <div class="wrap">
-    <h2>About</h2>
-    <p>About this app.</p>
-  </div>
+ <calculatorPage></calculatorPage>  
+ <subjectPage></subjectPage>
 </template>
+ 
+<style scoped>
+
+</style>
