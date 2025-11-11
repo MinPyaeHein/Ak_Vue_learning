@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive } from 'vue'
- 
+const updateStatus=ref(false)
 const form = reactive({
   job: '',
   startTime: '',
@@ -9,8 +9,30 @@ const form = reactive({
 })
  
 const entries = ref([])
+
+function updateForm(row){
+   updateStatus.value=true
+   form.id=row.id
+   form.job=row.job
+   form.startTime=row.startTime
+   form.endTime=row.endTime
+   form.status=row.status
+}
+
+function updateData(){
+  const updateObj=entries.value.find(todo=>todo.id==form.id)
+  updateObj.id= form.id
+  updateObj.job=form.job
+  updateObj.startTime= form.startTime
+  updateObj.endTime=form.endTime
+  updateObj.status=form.status
+}
  
 function onSubmit() {
+  if(form.job ==='' || form.startTime === ''|| form.endTime === '' || form.status === '' ){
+     alert("Please fill the value in the form")
+     return
+  }
   entries.value.push({
     id: Date.now(),
     job: form.job,
@@ -32,7 +54,7 @@ function removeRow(id) {
  
 <template>
   <div class="wrap">
-    <h2>To Do List</h2>
+    <h2>{{ updateStatus ? 'Update To Do List Form' : 'To Do List Register Form' }}</h2>
  
     <form class="card" @submit.prevent="onSubmit">
       <div class="grid">
@@ -70,10 +92,16 @@ function removeRow(id) {
         </div>
       </div>
  
-      <div class="actions" style="gap: 0.5rem">
+      <div v-if="!updateStatus" class="actions" style="gap: 0.5rem">
         <button type="submit">Submit</button>
         <button class="secondary" type="button" @click="clearForm">Clear</button>
       </div>
+
+      <div v-if="updateStatus" class="actions" style="gap: 0.5rem">
+        <button @click="updateData" type="button">Update</button>
+        <button class="secondary" type="button" @click="clearForm">Clear</button>
+      </div>
+
     </form>
  
     <h3>Saved Entries ({{ entries.length }})</h3>
@@ -97,6 +125,9 @@ function removeRow(id) {
             <td>{{ row.status }}</td>
             <td style="display: flex; gap: 0.4rem">
               <button class="danger" type="button" @click="removeRow(row.id)">Remove</button>
+            </td>
+             <td style="display: flex; gap: 0.4rem">
+              <button class="primary" type="button" @click="updateForm(row)">Update</button>
             </td>
           </tr>
         </tbody>
@@ -263,4 +294,5 @@ tbody td {
   margin-top: 0.5rem;
 }
 </style>
+ 
  

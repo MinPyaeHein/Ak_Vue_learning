@@ -4,6 +4,7 @@ const HomePage = () => import('@/pages/HomePage.vue')
 const FormPage = () => import('@/pages/FormPage.vue')
 const AboutPage = () => import('@/pages/AboutPage.vue')
 const ContactPage = () => import('@/pages/ContactPage.vue')
+const todoListPage = () => import('@/pages/ToDoList.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +13,7 @@ const router = createRouter({
     { path: '/form',    name: 'form',    component: FormPage },
     { path: '/about',   name: 'about',   component: AboutPage },
     { path: '/contact', name: 'contact', component: ContactPage },
+    { path: '/todoList', name: 'todoList', component: todoListPage },
 
     { path: '/:pathMatch(.*)*', redirect: '/' }
   ],

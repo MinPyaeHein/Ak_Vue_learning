@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { reactive } from 'vue'
+import { reactive, watch, toRaw} from 'vue'
 
 const form = reactive({
   name: '',
@@ -15,6 +15,16 @@ const errors= reactive({
   email: '',
   address: ''
 })
+
+
+watch(
+  form,
+  (newVal, _oldVal) => {
+      console.log("newVal-->",newVal.name)
+      console.log("_oldVal-->",_oldVal.name)
+  },
+  { deep: true }
+)
 
 const isBlank = (v) => v == null || (typeof v === 'string' && v.trim() === '')
 
@@ -65,7 +75,7 @@ if (!validateAll()) return
 
 if(editingId.value){
 const target=entries.value.find(student=>student.id === editingId.value)
-//if it is null value will be automitically false
+
 if(target){
    Object.assign(target, {
         name: form.name,
