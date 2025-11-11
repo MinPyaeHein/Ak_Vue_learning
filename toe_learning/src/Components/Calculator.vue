@@ -6,8 +6,14 @@ const result=ref(0)
 function add(){
  result.value=num1.value+ num2.value
 }
-function onReset(){
-  num1.value= num2.value = result.value= 0
+function sub(){
+ result.value=num1.value- num2.value
+}
+function mul(){
+ result.value=num1.value* num2.value
+}
+function div(){
+ result.value=num1.value / num2.value
 }
 </script>
 
@@ -16,7 +22,6 @@ function onReset(){
     <h2 class="title">Calculator</h2>
 
     <div class="grid">
-    <form v-on:submit.prevent="add" @reset.prevent="onReset" >
       <label for="num2">Num 2</label>
       <input v-model.number="num1" type="number" placeholder="Enter number" />
 
@@ -27,10 +32,11 @@ function onReset(){
       <input v-model.number="result" type="text" readonly />
 
       <div class="buttons">
-        <button type="submit">add</button>
-        <button type="reset">Clear</button>
+        <button @click="add"  type="button">add</button>
+        <button @click="sub"  type="button">Sub</button>
+        <button @click="mul" type="button">Mul</button>
+        <button @click="div"  type="button">div</button>
       </div>
-    </form>
     </div>
   </main>
 </template>
