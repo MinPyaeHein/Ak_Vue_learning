@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import { reactive, watch, toRaw} from 'vue'
+import { reactive} from 'vue'
+import { useStudentStore } from '@/stores/students'
+const store = useStudentStore()
 
 const form = reactive({
   name: '',
@@ -16,15 +18,6 @@ const errors= reactive({
   address: ''
 })
 
-
-watch(
-  form,
-  (newVal, _oldVal) => {
-      console.log("newVal-->",newVal.name)
-      console.log("_oldVal-->",_oldVal.name)
-  },
-  { deep: true }
-)
 
 const isBlank = (v) => v == null || (typeof v === 'string' && v.trim() === '')
 
@@ -67,7 +60,7 @@ function validateAll(){
 }
 
 const editingId = ref(null) 
-const entries = ref([])
+const entries = ref(store.getAllStudents())
 
 function onSubmit() {
 
@@ -87,12 +80,11 @@ if(target){
 }
 
 }else{
- entries.value.push({
-    id: Date.now(),
-    name: form.name,
-    age: form.age,
-    email: form.email,
-    address: form.address
+store.addStudent({
+    name: form.name.trim(),
+    age: Number(form.age || 0),
+    email: form.email?.trim() || '',
+    address: form.address?.trim() || ''
   })
 }
   Object.assign(form, { name: '', age: null, email: '', address: '' })
