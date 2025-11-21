@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref , onMounted} from 'vue'
 import { reactive} from 'vue'
 import { useStudentStore } from '@/stores/students'
 const store = useStudentStore()
@@ -103,6 +103,10 @@ function startEdit(row) {
 function removeRow(id) {
   entries.value = entries.value.filter(e => e.id !== id)
 }
+
+onMounted(() => {
+  store.initStudents()
+})
 
 </script>
 

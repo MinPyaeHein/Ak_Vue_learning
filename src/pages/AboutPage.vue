@@ -1,56 +1,95 @@
-<script setup>
-import { reactive, watch, toRaw,ref} from 'vue'
+<template>
+  <div>
+    <h2>Posts</h2>
 
-const fruitsBucket=ref(['apple','orange','mango','lemon','berry'])
-const myBucket=ref([])
-const name=ref('')
-watch(
-  name,
-  (newVal, _oldVal) => {
-  
-     console.log(_oldVal.includes(newVal))
-  },
-  { deep: true }
-)
-function removeFruit(fruit){
-   myBucket.value.push(fruit)
-   const idx = fruitsBucket.value.indexOf(fruit)
-   if (idx !== -1) fruitsBucket.value.splice(idx, 1)
+    <button @click="loadPosts" :disabled="loading">
+      {{ loading ? 'Loading...' : 'Load Posts' }}
+    </button>
+
+    <p v-if="error" style="color: red">{{ error }}</p>
+
+    <ul v-if="posts.length">
+      <li v-for="post in posts" :key="post.id">
+        <strong>{{ post.title }}</strong>
+        <p>{{ post.body }}</p>
+      </li>
+    </ul>
+  </div>
+</template>
+<!-- 
+<script setup>
+import { ref } from 'vue'
+import axios from 'axios'
+
+const posts = ref([])
+const loading = ref(false)
+const error = ref('')
+
+async function loadPosts() {
+  loading.value = true
+  error.value = ''
+
+  try {
+    const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    console.log(res)
+    posts.value = res.data
+  } catch (e) {
+    console.log(e)
+    // Axios wraps error
+    if (axios.isAxiosError(e)) {
+      error.value = e.message
+    } else {
+      error.value = 'Unknown error'
+    }
+  } finally {
+    loading.value = false
+  }
 }
 </script>
- 
+
 <template>
-<section class="card">
-    <input v-model.trim="name" type="text" placeholder="Enter a no duplicate word !" />
-    <h2>Fruits</h2>
-    <p class="hint">Tick to remove the fruit from the list.</p>
+  <div>
+    <h2>Users</h2>
 
-    <ul class="list">
-      <li v-for="fruit in fruitsBucket" :key="fruit" class="row">
-        <label class="item">
-          <!-- no v-model needed: we remove on change -->
-          <input type="checkbox" @change="removeFruit(fruit)" />
-          <span>{{ fruit }}</span>
-        </label>
+    <button @click="loadUsers" :disabled="loading">
+      {{ loading ? 'Loading...' : 'Load Users' }}
+    </button>
+
+    <p v-if="error" style="color: red">{{ error }}</p>
+
+    <ul v-if="users.length">
+      <li v-for="user in users" :key="user.id">
+        {{ user.name }} – {{ user.email }}
       </li>
-      <li v-if="fruitsBucket.length === 0" class="empty">No fruits left 🍋</li>
     </ul>
-
-<p class="hint">Tick to remove the fruit from My Buy List.</p>
-     <ul class="list">
-      <li v-for="fruit in myBucket" :key="fruit" class="row">
-        <label class="item">
-       
-          <input type="checkbox" @change="removeFruit(fruit)" />
-          <span>{{ fruit }}</span>
-        </label>
-      </li>
-      <li v-if="myBucket.length === 0" class="empty">No Item Buy in my bucket 🍋</li>
-    </ul>
-  </section>
-
+  </div>
 </template>
- 
-<style scoped>
 
-</style>
+<script setup>
+import { ref } from 'vue'
+
+const users = ref([])
+const loading = ref(false)
+const error = ref('')
+
+async function loadUsers() {
+  loading.value = true
+  error.value = ''
+
+  try {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
+
+    if (!res.ok) {
+      throw new Error('Network response was not ok')
+    }
+
+    const data = await res.json()
+    users.value = data
+  } catch (e) {
+    error.value = e instanceof Error ? e.message : 'Unknown error'
+  } finally {
+    loading.value = false
+  }
+}
+</script> -->
+

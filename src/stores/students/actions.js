@@ -7,8 +7,13 @@ const MOCK_STUDENTS = [
   { id: 3, name: 'Su Su',    age: 19, email: 'su@example.com',  address: 'Phuket' },
 ]
 
+export function initStudents() {
+  if (this.dataList.length === 0) {
+    this.dataList = [...MOCK_STUDENTS]
+  }
+}
+
 export function getAllStudents() {
-  this.dataList = [...MOCK_STUDENTS]
   return this.dataList
 }
 
