@@ -8,20 +8,20 @@
 
     <p v-if="error" style="color: red">{{ error }}</p>
 
-    <ul v-if="posts.length">
-      <li v-for="post in posts" :key="post.id">
-        <strong>{{ post.title }}</strong>
-        <p>{{ post.body }}</p>
+    <ul v-if="customers.length">
+      <li v-for="customer in customers" :key="customer.id">
+        <strong>{{ customer.name}}</strong>
+        <p>{{ customer.phone }}</p>
       </li>
     </ul>
   </div>
 </template>
-<!-- 
+
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
 
-const posts = ref([])
+const customers = ref([])
 const loading = ref(false)
 const error = ref('')
 
@@ -30,9 +30,9 @@ async function loadPosts() {
   error.value = ''
 
   try {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const res = await axios.get('http://localhost:8080/api/customers')
     console.log(res)
-    posts.value = res.data
+    customers.value = res.data
   } catch (e) {
     console.log(e)
     // Axios wraps error
@@ -47,7 +47,7 @@ async function loadPosts() {
 }
 </script>
 
-<template>
+<!-- <template>
   <div>
     <h2>Users</h2>
 
@@ -63,8 +63,8 @@ async function loadPosts() {
       </li>
     </ul>
   </div>
-</template>
-
+</template> -->
+<!-- 
 <script setup>
 import { ref } from 'vue'
 
@@ -91,5 +91,5 @@ async function loadUsers() {
     loading.value = false
   }
 }
-</script> -->
-
+</script> 
+ -->
