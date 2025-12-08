@@ -1,5 +1,7 @@
 <template>
   <header><slot name="header"></slot></header>
-  <main><slot></slot></main> 
+
+  <main><slot name="page"></slot></main> 
+
   <footer><slot name="footer"></slot></footer>
 </template>
